@@ -1,0 +1,1258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Dynamic Padel Club — Premium Indoor Padel · Birmingham · Opening 2026</title>
+<meta name="description" content="Premium indoor padel coming to the heart of Birmingham. Founding membership now open. Bordesley, B12 0JU. Opening 2026." />
+<meta property="og:title" content="Dynamic Padel Club — Birmingham, Are You Ready?" />
+<meta property="og:description" content="Premium indoor padel. Coming to the heart of Birmingham. Founding membership now open." />
+<meta property="og:image" content="og-image.jpg" />
+<meta property="og:type" content="website" />
+<meta name="theme-color" content="#000000" />
+<link rel="icon" href="logo.jpg" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+<style>
+  :root {
+    --bg: #000000;
+    --fg: #f4f4f1;
+    --fg-dim: #8a8a85;
+    --hairline: rgba(244, 244, 241, 0.12);
+    --hairline-strong: rgba(244, 244, 241, 0.22);
+    --green: #01F650;
+    --green-deep: #00b73c;
+    --display: "Big Shoulders Display", "Arial Narrow", sans-serif;
+    --body: "Manrope", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--fg);
+    font-family: var(--body);
+    font-weight: 400;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  /* Sitewide film-grain noise overlay */
+  body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.07;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.6 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  }
+
+  a { color: inherit; text-decoration: none; }
+  button { font: inherit; cursor: pointer; }
+  img { display: block; max-width: 100%; }
+
+  ::selection { background: var(--green); color: #000; }
+
+  .container {
+    width: 100%;
+    max-width: 1480px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  /* ---------- Display helpers ---------- */
+  .display {
+    font-family: var(--display);
+    font-weight: 900;
+    font-style: italic;
+    line-height: 0.86;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+  }
+
+  .green { color: var(--green); }
+
+  .section-label {
+    display: inline-flex;
+    flex-direction: column;
+    gap: 14px;
+    font-family: var(--body);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--fg-dim);
+  }
+  .section-label::after {
+    content: "";
+    width: 40px;
+    height: 2px;
+    background: var(--green);
+  }
+
+  .eyebrow {
+    font-family: var(--body);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--fg-dim);
+  }
+
+  /* ---------- Sticky Nav ---------- */
+  nav.nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    backdrop-filter: blur(14px) saturate(140%);
+    -webkit-backdrop-filter: blur(14px) saturate(140%);
+    background: rgba(0, 0, 0, 0.55);
+    border-bottom: 1px solid var(--hairline);
+    transition: background 200ms ease, border-color 200ms ease;
+  }
+  nav.nav.scrolled {
+    background: rgba(0, 0, 0, 0.78);
+    border-bottom-color: var(--hairline-strong);
+  }
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 72px;
+    padding: 0 32px;
+    max-width: 1480px;
+    margin: 0 auto;
+  }
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .nav-logo img {
+    width: 34px;
+    height: 34px;
+    object-fit: cover;
+    border-radius: 6px;
+  }
+  .nav-logo-text {
+    font-family: var(--display);
+    font-style: italic;
+    font-weight: 900;
+    font-size: 22px;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    line-height: 1;
+  }
+  .nav-logo-text span { color: var(--green); }
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+  }
+  .nav-links a.link {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--fg-dim);
+    transition: color 180ms ease;
+  }
+  .nav-links a.link:hover { color: var(--fg); }
+
+  /* ---------- Buttons ---------- */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 16px 26px;
+    font-family: var(--body);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    border: 1px solid var(--hairline-strong);
+    background: transparent;
+    color: var(--fg);
+    transition: transform 200ms ease, background 200ms ease, color 200ms ease, border-color 200ms ease;
+    white-space: nowrap;
+  }
+  .btn:hover {
+    transform: translateY(-2px);
+    border-color: var(--fg);
+  }
+  .btn .arrow { transition: transform 200ms ease; }
+  .btn:hover .arrow { transform: translateX(4px); }
+
+  .btn-primary {
+    background: var(--green);
+    color: #000;
+    border-color: var(--green);
+  }
+  .btn-primary:hover {
+    background: #fff;
+    border-color: #fff;
+    color: #000;
+  }
+
+  .btn-ghost {
+    background: transparent;
+    color: var(--fg);
+    border-color: var(--hairline-strong);
+  }
+  .btn-ghost:hover {
+    background: var(--fg);
+    color: #000;
+    border-color: var(--fg);
+  }
+
+  .nav .btn { padding: 12px 20px; font-size: 11px; }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    min-height: 100svh;
+    padding: 140px 0 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+  }
+  .hero-bg-court {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.5;
+  }
+  .hero-bg-court::before,
+  .hero-bg-court::after {
+    content: "";
+    position: absolute;
+    background: var(--hairline);
+  }
+  /* Vertical hairlines forming a court */
+  .court-grid {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    pointer-events: none;
+    opacity: 0.35;
+  }
+  .court-grid > span {
+    border-left: 1px solid var(--hairline);
+  }
+  .court-grid > span:first-child { border-left: none; }
+
+  .hero-top {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 32px;
+    padding: 0 32px;
+  }
+  .hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--fg-dim);
+  }
+  .hero-tag .dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: var(--green);
+    box-shadow: 0 0 14px var(--green);
+    animation: pulse 1.8s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(0.7); }
+  }
+  .hero-meta {
+    text-align: right;
+    font-size: 11px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--fg-dim);
+    line-height: 1.7;
+  }
+  .hero-meta strong { color: var(--fg); font-weight: 600; }
+
+  .hero-main {
+    position: relative;
+    z-index: 2;
+    padding: 0 32px;
+    margin-top: 60px;
+  }
+  .hero-headline {
+    font-size: clamp(3.5rem, 13vw, 13rem);
+    line-height: 0.84;
+    margin: 0;
+  }
+  .hero-headline .line { display: block; }
+  .hero-headline .line + .line { margin-top: 4px; }
+  .hero-headline em {
+    font-style: italic;
+    color: var(--green);
+    position: relative;
+    display: inline-block;
+  }
+  .hero-headline em::after {
+    content: "?";
+    color: var(--fg);
+    font-style: italic;
+  }
+  .hero-headline em .word { display: inline-block; }
+
+  .hero-bottom {
+    position: relative;
+    z-index: 2;
+    padding: 60px 32px 0;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: end;
+    gap: 40px;
+  }
+  .hero-sub {
+    max-width: 520px;
+    font-size: 18px;
+    line-height: 1.5;
+    color: var(--fg);
+    margin: 0;
+    font-weight: 300;
+  }
+  .hero-sub strong { font-weight: 600; }
+  .hero-ctas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    justify-content: flex-end;
+  }
+
+  .hero-corner {
+    position: absolute;
+    bottom: 24px;
+    right: 32px;
+    z-index: 1;
+    font-family: var(--body);
+    font-size: 10px;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--fg-dim);
+    opacity: 0.6;
+  }
+
+  /* ---------- Marquee ---------- */
+  .marquee {
+    border-top: 1px solid var(--hairline-strong);
+    border-bottom: 1px solid var(--hairline-strong);
+    overflow: hidden;
+    background: #050505;
+  }
+  .marquee-track {
+    display: flex;
+    gap: 48px;
+    padding: 26px 0;
+    animation: scroll 36s linear infinite;
+    width: max-content;
+    white-space: nowrap;
+  }
+  .marquee-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 48px;
+    font-family: var(--display);
+    font-style: italic;
+    font-weight: 800;
+    font-size: clamp(28px, 4vw, 56px);
+    text-transform: uppercase;
+    letter-spacing: 0.01em;
+    color: var(--fg);
+    line-height: 1;
+  }
+  .marquee-item .sep {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--green);
+    box-shadow: 0 0 12px rgba(1, 246, 80, 0.6);
+    flex-shrink: 0;
+  }
+  @keyframes scroll {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+
+  /* ---------- The Game ---------- */
+  section.section { padding: 140px 0; position: relative; }
+  section.section + section.section { border-top: 1px solid var(--hairline); }
+
+  .game-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 80px;
+    align-items: start;
+    margin-bottom: 100px;
+  }
+  .game-grid h2 {
+    font-size: clamp(2.4rem, 6vw, 5.2rem);
+    margin: 24px 0 0;
+  }
+  .game-body {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    color: var(--fg-dim);
+    font-size: 17px;
+    line-height: 1.6;
+    max-width: 540px;
+    padding-top: 12px;
+  }
+  .game-body p { margin: 0; }
+  .game-body p strong { color: var(--fg); font-weight: 600; }
+
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border-top: 1px solid var(--hairline-strong);
+    border-bottom: 1px solid var(--hairline-strong);
+  }
+  .stat {
+    padding: 56px 28px 48px;
+    border-left: 1px solid var(--hairline);
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    position: relative;
+  }
+  .stat:first-child { border-left: none; }
+  .stat-number {
+    font-family: var(--display);
+    font-style: italic;
+    font-weight: 900;
+    font-size: clamp(3.5rem, 8vw, 7rem);
+    line-height: 0.85;
+    color: var(--fg);
+    letter-spacing: -0.01em;
+  }
+  .stat-number .accent { color: var(--green); }
+  .stat-label {
+    font-size: 11px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--fg-dim);
+    line-height: 1.6;
+    max-width: 200px;
+  }
+  .stat-index {
+    position: absolute;
+    top: 20px;
+    right: 24px;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    color: var(--fg-dim);
+    opacity: 0.5;
+  }
+
+  /* ---------- What's Coming ---------- */
+  .coming-head {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 80px;
+    margin-bottom: 80px;
+    align-items: end;
+  }
+  .coming-head h2 {
+    font-size: clamp(2.4rem, 6vw, 5.2rem);
+    margin: 24px 0 0;
+    max-width: 800px;
+  }
+  .coming-head p {
+    color: var(--fg-dim);
+    font-size: 17px;
+    line-height: 1.6;
+    max-width: 480px;
+    margin: 0;
+  }
+
+  .features {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border-top: 1px solid var(--hairline-strong);
+    border-left: 1px solid var(--hairline-strong);
+  }
+  .feature {
+    padding: 44px 36px 48px;
+    border-right: 1px solid var(--hairline-strong);
+    border-bottom: 1px solid var(--hairline-strong);
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    position: relative;
+    transition: background 250ms ease;
+    min-height: 320px;
+  }
+  .feature:hover { background: #0a0a0a; }
+  .feature:hover .feature-num { color: var(--green); }
+  .feature-num {
+    font-family: var(--display);
+    font-style: italic;
+    font-weight: 800;
+    font-size: 18px;
+    letter-spacing: 0.05em;
+    color: var(--fg-dim);
+    transition: color 250ms ease;
+  }
+  .feature-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--green);
+  }
+  .feature h3 {
+    font-family: var(--display);
+    font-style: italic;
+    font-weight: 800;
+    font-size: 36px;
+    text-transform: uppercase;
+    line-height: 0.92;
+    margin: 0;
+    letter-spacing: 0;
+  }
+  .feature p {
+    color: var(--fg-dim);
+    font-size: 15px;
+    line-height: 1.55;
+    margin: 0;
+    margin-top: auto;
+  }
+
+  /* ---------- Founding Members (inverted) ---------- */
+  section.founding {
+    background: var(--green);
+    color: #000;
+    border-top: none;
+    padding: 140px 0;
+    position: relative;
+    overflow: hidden;
+  }
+  section.founding::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.7 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+    opacity: 0.18;
+    mix-blend-mode: multiply;
+    pointer-events: none;
+  }
+  .founding-inner {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+  .founding .section-label { color: rgba(0,0,0,0.65); }
+  .founding .section-label::after { background: #000; }
+  .founding h2 {
+    font-size: clamp(3rem, 8vw, 7.5rem);
+    margin: 24px 0 32px;
+    color: #000;
+    line-height: 0.88;
+  }
+  .founding-sub {
+    font-size: 19px;
+    line-height: 1.55;
+    color: #000;
+    max-width: 520px;
+    margin: 0 0 36px;
+    font-weight: 500;
+  }
+  .founding-meta {
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+  .founding-meta-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .founding-meta-item .k {
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: rgba(0,0,0,0.6);
+  }
+  .founding-meta-item .v {
+    font-family: var(--display);
+    font-style: italic;
+    font-weight: 800;
+    font-size: 28px;
+    line-height: 1;
+    text-transform: uppercase;
+  }
+
+  .founding-form {
+    background: #000;
+    color: var(--fg);
+    padding: 48px 44px;
+    border: 1px solid #000;
+    position: relative;
+  }
+  .founding-form::before {
+    content: "01 / 100";
+    position: absolute;
+    top: 20px;
+    right: 24px;
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--green);
+  }
+  .founding-form .form-label {
+    font-family: var(--display);
+    font-style: italic;
+    font-weight: 900;
+    font-size: 28px;
+    text-transform: uppercase;
+    margin: 0 0 28px;
+    color: var(--fg);
+    line-height: 1;
+  }
+  .founding-form .field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 22px;
+  }
+  .founding-form label {
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--fg-dim);
+  }
+  .founding-form input {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--hairline-strong);
+    padding: 12px 0 14px;
+    color: var(--fg);
+    font-family: var(--body);
+    font-size: 18px;
+    outline: none;
+    transition: border-color 200ms ease;
+  }
+  .founding-form input::placeholder { color: var(--fg-dim); }
+  .founding-form input:focus { border-bottom-color: var(--green); }
+  .founding-form .form-submit {
+    margin-top: 14px;
+    width: 100%;
+    background: var(--green);
+    color: #000;
+    border: 1px solid var(--green);
+    padding: 20px 24px;
+    font-family: var(--body);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: transform 200ms ease, background 200ms ease, color 200ms ease;
+  }
+  .founding-form .form-submit:hover {
+    transform: translateY(-2px);
+    background: #fff;
+    border-color: #fff;
+  }
+  .founding-form .privacy {
+    margin: 20px 0 0;
+    font-size: 12px;
+    line-height: 1.55;
+    color: var(--fg-dim);
+  }
+  .founding-form .privacy strong { color: var(--fg); font-weight: 600; }
+
+  .form-success {
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+    padding: 8px 0;
+  }
+  .form-success.shown { display: flex; }
+  .form-success .ok {
+    color: var(--green);
+    font-family: var(--display);
+    font-style: italic;
+    font-weight: 800;
+    font-size: 28px;
+    text-transform: uppercase;
+    line-height: 1;
+  }
+  .form-success .small {
+    color: var(--fg-dim);
+    font-size: 14px;
+  }
+
+  /* ---------- Location ---------- */
+  .location-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: start;
+  }
+  .location-info h2 {
+    font-size: clamp(2.6rem, 7vw, 6rem);
+    margin: 24px 0 28px;
+    line-height: 0.88;
+  }
+  .location-info p.desc {
+    color: var(--fg-dim);
+    font-size: 17px;
+    line-height: 1.6;
+    max-width: 460px;
+    margin: 0 0 40px;
+  }
+  .location-info p.desc strong { color: var(--fg); font-weight: 600; }
+  .location-data {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+    border-top: 1px solid var(--hairline-strong);
+  }
+  .location-data .row {
+    display: grid;
+    grid-template-columns: 140px 1fr auto;
+    align-items: center;
+    gap: 24px;
+    padding: 22px 0;
+    border-bottom: 1px solid var(--hairline);
+  }
+  .location-data .row .k {
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--fg-dim);
+  }
+  .location-data .row .v {
+    font-family: var(--display);
+    font-style: italic;
+    font-weight: 800;
+    font-size: 22px;
+    text-transform: uppercase;
+    line-height: 1.1;
+  }
+  .location-data .row a.v:hover { color: var(--green); }
+  .location-data .row .icon {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: var(--fg-dim);
+    text-transform: uppercase;
+  }
+
+  .map-frame {
+    position: relative;
+    aspect-ratio: 1 / 1.1;
+    border: 1px solid var(--hairline-strong);
+    overflow: hidden;
+    background: #0a0a0a;
+  }
+  .map-frame iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    filter: invert(0.94) hue-rotate(60deg) saturate(0.6) brightness(1.05);
+  }
+  .map-pin {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -100%);
+    pointer-events: none;
+    z-index: 2;
+  }
+  .map-pin .pin {
+    width: 18px; height: 18px;
+    border-radius: 50%;
+    background: var(--green);
+    box-shadow: 0 0 0 4px rgba(0,0,0,0.8), 0 0 28px var(--green);
+    animation: pulse 1.8s ease-in-out infinite;
+  }
+  .map-overlay {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    background: linear-gradient(to top, #000, transparent);
+    padding: 32px 24px 20px;
+    pointer-events: none;
+  }
+  .map-overlay .coord {
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    color: var(--green);
+    text-transform: uppercase;
+  }
+  .map-overlay .place {
+    font-family: var(--display);
+    font-style: italic;
+    font-weight: 900;
+    font-size: 26px;
+    text-transform: uppercase;
+    line-height: 1;
+    margin-top: 8px;
+  }
+
+  /* ---------- Footer ---------- */
+  footer.footer {
+    border-top: 1px solid var(--hairline-strong);
+    padding: 80px 0 36px;
+    position: relative;
+  }
+  .footer-line {
+    font-family: var(--display);
+    font-style: italic;
+    font-weight: 900;
+    font-size: clamp(3rem, 13.5vw, 13rem);
+    line-height: 0.85;
+    text-transform: uppercase;
+    margin: 0 0 60px;
+    letter-spacing: -0.01em;
+    text-align: center;
+  }
+  .footer-line em { font-style: italic; color: var(--green); }
+  .footer-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 32px;
+    padding-top: 32px;
+    border-top: 1px solid var(--hairline);
+    flex-wrap: wrap;
+  }
+  .footer-bar .credit {
+    font-size: 11px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--fg-dim);
+  }
+  .footer-bar .links {
+    display: flex;
+    gap: 28px;
+  }
+  .footer-bar .links a {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--fg-dim);
+    transition: color 180ms ease;
+  }
+  .footer-bar .links a:hover { color: var(--green); }
+
+  /* ---------- Mobile ---------- */
+  @media (max-width: 900px) {
+    .container { padding: 0 22px; }
+    .nav-inner { padding: 0 22px; height: 64px; }
+    .nav-links a.link { display: none; }
+    .nav-logo img { width: 30px; height: 30px; }
+    .nav-logo-text { font-size: 18px; }
+
+    .hero { padding: 110px 0 50px; }
+    .hero-top { padding: 0 22px; flex-direction: column; }
+    .hero-meta { text-align: left; }
+    .hero-main { padding: 0 22px; margin-top: 40px; }
+    .hero-bottom { padding: 50px 22px 0; grid-template-columns: 1fr; }
+    .hero-ctas { justify-content: flex-start; }
+    .hero-sub { font-size: 16px; }
+
+    section.section { padding: 90px 0; }
+    .game-grid,
+    .coming-head,
+    .founding-inner,
+    .location-grid { grid-template-columns: 1fr; gap: 40px; }
+
+    .stats { grid-template-columns: repeat(2, 1fr); }
+    .stat:nth-child(2) { border-left: 1px solid var(--hairline); }
+    .stat:nth-child(3) { border-left: none; border-top: 1px solid var(--hairline); }
+    .stat:nth-child(4) { border-top: 1px solid var(--hairline); }
+
+    .features { grid-template-columns: 1fr; }
+
+    section.founding { padding: 90px 0; }
+    .founding-form { padding: 32px 24px; }
+    .location-data .row { grid-template-columns: 110px 1fr; }
+    .location-data .row .icon { display: none; }
+    .map-frame { aspect-ratio: 4 / 5; }
+
+    .footer-line { font-size: clamp(2.6rem, 14vw, 7rem); }
+    .footer-bar { flex-direction: column; align-items: flex-start; gap: 18px; }
+  }
+
+  /* ---------- Reveal on scroll ---------- */
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity 700ms ease, transform 700ms ease; }
+  .reveal.in { opacity: 1; transform: none; }
+</style>
+</head>
+<body>
+
+<!-- ============= NAV ============= -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#top" class="nav-logo" aria-label="Dynamic Padel Club, home">
+      <img src="logo.jpg" alt="Dynamic Padel Club logo" />
+      <span class="nav-logo-text">Dynamic <span>Padel</span></span>
+    </a>
+    <div class="nav-links">
+      <a class="link" href="#game">The Game</a>
+      <a class="link" href="#coming">What's Coming</a>
+      <a class="link" href="#location">Location</a>
+      <a class="btn btn-primary" href="#founding">Join Waitlist <span class="arrow">→</span></a>
+    </div>
+  </div>
+</nav>
+
+<!-- ============= HERO ============= -->
+<header class="hero" id="top">
+  <div class="court-grid" aria-hidden="true">
+    <span></span><span></span><span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span><span></span><span></span>
+  </div>
+
+  <div class="hero-top">
+    <div class="hero-tag">
+      <span class="dot"></span>
+      Opening 2026 · Bordesley · Birmingham
+    </div>
+    <div class="hero-meta">
+      <div>52.4735° N · 1.8803° W</div>
+      <div><strong>B12 0JU</strong> · UK</div>
+    </div>
+  </div>
+
+  <div class="hero-main">
+    <h1 class="display hero-headline">
+      <span class="line">Birmingham,</span>
+      <span class="line">are you</span>
+      <span class="line"><em><span class="word">ready</span></em></span>
+    </h1>
+  </div>
+
+  <div class="hero-bottom">
+    <p class="hero-sub">
+      <strong>Premium indoor padel.</strong> Coming to the heart of Birmingham. Climate-controlled courts, pro coaching, clubhouse energy — built for the fastest game in the city.
+    </p>
+    <div class="hero-ctas">
+      <a class="btn btn-primary" href="#founding">Claim Founding Status <span class="arrow">→</span></a>
+      <a class="btn btn-ghost" href="https://instagram.com/dynamicpadelclub" target="_blank" rel="noopener">Follow the build</a>
+    </div>
+  </div>
+
+  <div class="hero-corner">Scroll · 01 / 06</div>
+</header>
+
+<!-- ============= MARQUEE ============= -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track" id="marqueeTrack">
+    <!-- duplicated via JS for seamless loop -->
+  </div>
+</div>
+
+<!-- ============= THE GAME ============= -->
+<section class="section" id="game">
+  <div class="container">
+    <div class="game-grid reveal">
+      <div>
+        <span class="section-label">The Game</span>
+        <h2 class="display">The fastest-growing<br>sport on earth.<br><em class="green">Coming to your city.</em></h2>
+      </div>
+      <div class="game-body">
+        <p><strong>Padel is tennis meets squash.</strong> Played in doubles on a glass-walled court, scored like tennis, but with the walls in play. The court is smaller, the racket is solid, the rallies last longer — and the learning curve is almost vertical.</p>
+        <p>You can pick it up in a single session. You will lose your evenings to it within a month. It's the most addictive racket sport on the planet, and Birmingham is about to find out why.</p>
+      </div>
+    </div>
+
+    <div class="stats reveal">
+      <div class="stat">
+        <span class="stat-index">01</span>
+        <div class="stat-number"><span class="accent">1,500</span>+</div>
+        <div class="stat-label">UK courts<br>and counting</div>
+      </div>
+      <div class="stat">
+        <span class="stat-index">02</span>
+        <div class="stat-number"><span class="accent">2</span>×</div>
+        <div class="stat-label">Growth in<br>18 months</div>
+      </div>
+      <div class="stat">
+        <span class="stat-index">03</span>
+        <div class="stat-number"><span class="accent">25</span>M</div>
+        <div class="stat-label">Players<br>globally</div>
+      </div>
+      <div class="stat">
+        <span class="stat-index">04</span>
+        <div class="stat-number"><span class="accent">#1</span></div>
+        <div class="stat-label">Fastest-growing<br>sport on earth</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============= WHAT'S COMING ============= -->
+<section class="section" id="coming">
+  <div class="container">
+    <div class="coming-head reveal">
+      <div>
+        <span class="section-label">What's Coming</span>
+        <h2 class="display">A club built for<br>the <em class="green">long game.</em></h2>
+      </div>
+      <p>Six things we're getting right from day one. Built with players, coaches and Birmingham locals — not architects who've never picked up a racket.</p>
+    </div>
+
+    <div class="features reveal">
+      <div class="feature">
+        <div class="feature-num">01</div>
+        <div class="feature-label">Courts</div>
+        <h3>Premium<br>indoor</h3>
+        <p>Panoramic indoor courts built for year-round play. Climate-controlled, world-class surfaces, lighting tuned for both training and league night.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-num">02</div>
+        <div class="feature-label">Coaching</div>
+        <h3>Coaching<br>for all</h3>
+        <p>From your first session to competitive match-play. Expert coaches for every level — group clinics, private one-to-ones, and academy pathways.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-num">03</div>
+        <div class="feature-label">Pro Shop</div>
+        <h3>Pro shop<br>on site</h3>
+        <p>Rackets, balls, kit and gear. Hire if you're new, buy when you're hooked. Curated kit from the brands the players actually swing.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-num">04</div>
+        <div class="feature-label">Clubhouse</div>
+        <h3>Clubhouse<br>vibes</h3>
+        <p>A space to recover, refuel and connect. Coffee, plates, post-match pints. The game continues off the court.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-num">05</div>
+        <div class="feature-label">Community</div>
+        <h3>Leagues<br>&amp; socials</h3>
+        <p>Open matches, weekly leagues, social mixers. Show up alone, leave with a regular four. We do the matchmaking.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-num">06</div>
+        <div class="feature-label">Access</div>
+        <h3>Easy<br>to reach</h3>
+        <p>Bordesley, minutes from Birmingham city centre. Free on-site parking, A45 access. Train, drive or cycle — you're in.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============= FOUNDING ============= -->
+<section class="founding" id="founding">
+  <div class="container">
+    <div class="founding-inner">
+      <div class="reveal">
+        <span class="section-label">Founding Members</span>
+        <h2 class="display">Be one of<br>the first <em>100.</em></h2>
+        <p class="founding-sub">
+          Priority booking on opening day. Exclusive opening-month rates. First access to coaching slots, leagues and members-only events.
+        </p>
+        <div class="founding-meta">
+          <div class="founding-meta-item">
+            <span class="k">Spots</span>
+            <span class="v">100 only</span>
+          </div>
+          <div class="founding-meta-item">
+            <span class="k">Status</span>
+            <span class="v">Now open</span>
+          </div>
+          <div class="founding-meta-item">
+            <span class="k">Locks in</span>
+            <span class="v">Opening rates</span>
+          </div>
+        </div>
+      </div>
+
+      <form class="founding-form reveal" id="foundingForm" action="https://formspree.io/f/xpqnaekr" method="POST">
+        <h3 class="form-label">Claim your spot.</h3>
+
+        <div id="formFields">
+          <div class="field">
+            <label for="email">Email <span style="color:var(--green)">·</span> Required</label>
+            <input type="email" id="email" name="email" placeholder="you@email.com" required autocomplete="email" />
+          </div>
+          <div class="field">
+            <label for="phone">Phone <span style="color:var(--fg-dim)">·</span> Optional</label>
+            <input type="tel" id="phone" name="phone" placeholder="07…" autocomplete="tel" />
+          </div>
+
+          <button type="submit" class="form-submit">
+            <span>Claim Founding Status</span>
+            <span class="arrow">→</span>
+          </button>
+
+          <p class="privacy">
+            <strong>No spam.</strong> We'll only message you about opening day and your founding member offer.
+          </p>
+        </div>
+
+        <div class="form-success" id="formSuccess">
+          <span class="ok">You're in.</span>
+          <span class="small">Welcome to the founding hundred. Watch your inbox for opening-day priority.</span>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ============= LOCATION ============= -->
+<section class="section" id="location">
+  <div class="container">
+    <div class="location-grid">
+      <div class="location-info reveal">
+        <span class="section-label">Location</span>
+        <h2 class="display">Bordesley.<br><em class="green">Birmingham.</em></h2>
+        <p class="desc">
+          Minutes from the city centre. Easy access from the <strong>A45</strong> and <strong>A4540</strong>. <strong>Free on-site parking.</strong>
+        </p>
+
+        <div class="location-data">
+          <div class="row">
+            <span class="k">Address</span>
+            <span class="v">131–148 High Street<br>Bordesley, B12 0JU</span>
+            <span class="icon">→</span>
+          </div>
+          <div class="row">
+            <span class="k">Phone</span>
+            <a class="v" href="tel:01217147350">0121 714 7350</a>
+            <span class="icon">Call</span>
+          </div>
+          <div class="row">
+            <span class="k">Instagram</span>
+            <a class="v" href="https://instagram.com/dynamicpadelclub" target="_blank" rel="noopener">@dynamicpadelclub</a>
+            <span class="icon">Follow</span>
+          </div>
+          <div class="row">
+            <span class="k">Hours</span>
+            <span class="v">Opening 2026</span>
+            <span class="icon">Soon</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="map-frame reveal">
+        <iframe
+          loading="lazy"
+          title="Map of Dynamic Padel Club, Bordesley, Birmingham"
+          src="https://www.openstreetmap.org/export/embed.html?bbox=-1.892%2C52.4685%2C-1.8686%2C52.4785&layer=mapnik&marker=52.473515%2C-1.8803314"
+        ></iframe>
+        <div class="map-pin"><div class="pin"></div></div>
+        <div class="map-overlay">
+          <div class="coord">52.4735° N · 1.8803° W</div>
+          <div class="place">Dynamic Padel Club</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============= FOOTER ============= -->
+<footer class="footer">
+  <div class="container">
+    <h2 class="footer-line">
+      Birmingham. The<br>game is <em>coming.</em>
+    </h2>
+    <div class="footer-bar">
+      <div class="credit">© 2026 Dynamic Padel Club · Birmingham, UK</div>
+      <div class="links">
+        <a href="https://instagram.com/dynamicpadelclub" target="_blank" rel="noopener">Instagram</a>
+        <a href="#founding">Waitlist</a>
+        <a href="tel:01217147350">Call</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // ---------- Marquee: build seamless loop ----------
+  (function buildMarquee() {
+    const track = document.getElementById('marqueeTrack');
+    const phrases = [
+      "Premium Indoor Padel",
+      "Opening 2026",
+      "Bordesley",
+      "Birmingham",
+      "The Fastest Game In The City"
+    ];
+    function buildOne() {
+      const wrap = document.createElement('div');
+      wrap.className = 'marquee-item';
+      phrases.forEach((p, i) => {
+        const span = document.createElement('span');
+        span.textContent = p;
+        wrap.appendChild(span);
+        const dot = document.createElement('span');
+        dot.className = 'sep';
+        wrap.appendChild(dot);
+      });
+      return wrap;
+    }
+    // Build enough copies for seamless loop
+    for (let i = 0; i < 4; i++) track.appendChild(buildOne());
+  })();
+
+  // ---------- Sticky nav scroll state ----------
+  const nav = document.getElementById('nav');
+  const onScroll = () => {
+    if (window.scrollY > 24) nav.classList.add('scrolled');
+    else nav.classList.remove('scrolled');
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // ---------- Reveal-on-scroll ----------
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // ---------- Form: optimistic success state (placeholder Formspree) ----------
+  const form = document.getElementById('foundingForm');
+  const fields = document.getElementById('formFields');
+  const success = document.getElementById('formSuccess');
+  form.addEventListener('submit', (e) => {
+    // If the Formspree URL hasn't been swapped in, prevent the bad POST and show success state for demo.
+    if (form.action.includes('YOUR_FORM_ID')) {
+      e.preventDefault();
+      fields.style.display = 'none';
+      success.classList.add('shown');
+    }
+    // Otherwise let the form submit normally to Formspree.
+  });
+</script>
+
+</body>
+</html>
