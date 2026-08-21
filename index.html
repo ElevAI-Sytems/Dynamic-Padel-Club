@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Dynamic Padel Club — Birmingham's First AI-Powered Padel Club · Now Open</title>
+<meta name="description" content="Birmingham's first AI-powered padel club. 6 super panoramic courts with AI tracking, instant replay and shareable match footage. Café, Pilates studio, workspace. Five minutes from the Bullring. Now open." />
+<meta property="og:title" content="Dynamic Padel Club — Birmingham's First AI-Powered Padel Club" />
+<meta property="og:description" content="6 AI-powered panoramic courts. Track your game, replay every point, share your match. Now open in Birmingham city centre." />
+<meta property="og:type" content="website" />
+<meta name="theme-color" content="#000000" />
+<link rel="icon" href="logo-mark.jpg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Manrope:wght@300;400;500;600;700&family=Azeret+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --bg:#000;--fg:#f4f4f1;--fg-dim:#8a8a85;
+  --hairline:rgba(244,244,241,.12);--hairline-strong:rgba(244,244,241,.22);
+  --green:#01F650;
+  --green-deep:oklch(58% .21 145);
+  --green-shade:oklch(38% .14 148);
+  --glass:rgba(244,244,241,.03);
+  --display:"Big Shoulders Display","Arial Narrow",sans-serif;
+  --body:"Manrope",system-ui,sans-serif;
+  --mono:"Azeret Mono",ui-monospace,monospace;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--body);line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:.07;mix-blend-mode:overlay;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.6 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
+a{color:var(--green);text-decoration:none}
+a:hover{color:var(--fg)}
+button{font:inherit;cursor:pointer}
+img{display:block;max-width:100%}
+::selection{background:var(--green);color:#000}
+.container{width:100%;max-width:1480px;margin:0 auto;padding:0 32px}
+.display{font-family:var(--display);font-weight:900;font-style:italic;line-height:.86;letter-spacing:-.01em;text-transform:uppercase}
+.green{color:var(--green)}
+.mono{font-family:var(--mono);font-size:10px;font-weight:500;letter-spacing:.22em;text-transform:uppercase}
+
+/* framing-mark motif: camera brackets, reused across the page */
+.framed{position:relative}
+.framed::before,.framed::after{content:"";position:absolute;width:18px;height:18px;pointer-events:none}
+.framed::before{top:-1px;left:-1px;border-top:2px solid var(--green);border-left:2px solid var(--green)}
+.framed::after{bottom:-1px;right:-1px;border-bottom:2px solid var(--green);border-right:2px solid var(--green)}
+
+.section-label{display:inline-flex;flex-direction:column;gap:14px;font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.28em;text-transform:uppercase;color:var(--fg-dim)}
+.section-label::after{content:"";width:40px;height:2px;background:var(--green)}
+
+/* ---- nav ---- */
+nav.nav{position:fixed;top:0;left:0;right:0;z-index:100;backdrop-filter:blur(14px) saturate(140%);-webkit-backdrop-filter:blur(14px) saturate(140%);background:rgba(0,0,0,.5);border-bottom:1px solid var(--hairline);transition:background .2s,border-color .2s}
+nav.nav.scrolled{background:rgba(0,0,0,.82);border-bottom-color:var(--hairline-strong)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:74px;padding:0 32px;max-width:1480px;margin:0 auto}
+.nav-logo{height:52px;overflow:hidden;display:flex;align-items:center}
+.nav-logo img{height:84px;width:84px;object-fit:cover}
+.nav-links{display:flex;align-items:center;gap:30px}
+.nav-links a.link{font-family:var(--mono);font-size:10px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--fg-dim);transition:color .18s}
+.nav-links a.link:hover{color:var(--green)}
+.nav-live{display:flex;align-items:center;gap:9px;font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--fg-dim)}
+.nav-live .dot{width:6px;height:6px;border-radius:50%;background:var(--green);box-shadow:0 0 10px var(--green);animation:pulse 1.8s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.35;transform:scale(.65)}}
+
+/* ---- buttons ---- */
+.btn{display:inline-flex;align-items:center;gap:10px;padding:16px 26px;font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;border:1px solid var(--hairline-strong);background:transparent;color:var(--fg);transition:transform .2s,background .2s,color .2s,border-color .2s,box-shadow .2s;white-space:nowrap}
+.btn:hover{transform:translateY(-2px);border-color:var(--fg);color:var(--fg)}
+.btn .arrow{transition:transform .2s}
+.btn:hover .arrow{transform:translateX(4px)}
+.btn-primary{background:var(--green);color:#000;border-color:var(--green);box-shadow:0 0 0 rgba(1,246,80,0)}
+.btn-primary:hover{background:#fff;border-color:#fff;color:#000;box-shadow:0 12px 40px -12px rgba(1,246,80,.5)}
+.btn-ghost:hover{background:var(--fg);color:#000;border-color:var(--fg)}
+.nav .btn{padding:13px 20px}
+
+/* ---- hero ---- */
+.hero{position:relative;min-height:100vh;min-height:100svh;padding:150px 0 40px;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden}
+.hero-media{position:absolute;inset:0;z-index:0}
+.hero-media img{width:100%;height:100%;object-fit:cover;object-position:62% 42%}
+.hero-scrim{position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(to right,rgba(0,0,0,.95),rgba(0,0,0,.72) 46%,rgba(0,0,0,.3)),linear-gradient(to top,#000 4%,rgba(0,0,0,.05) 46%)}
+/* AI tracking overlay drawn over the photo */
+.hero-track{position:absolute;inset:0;z-index:2;pointer-events:none;opacity:.85}
+.hero-track svg{width:100%;height:100%}
+.trace{fill:none;stroke:var(--green);stroke-width:1.4;stroke-dasharray:5 7;opacity:.5;animation:dash 3.4s linear infinite}
+@keyframes dash{to{stroke-dashoffset:-96}}
+.bbox{fill:none;stroke:var(--green);stroke-width:1.6;opacity:.9}
+.bbox-dim{fill:none;stroke:rgba(244,244,241,.5);stroke-width:1.2;stroke-dasharray:3 5}
+.hero-top,.hero-main,.hero-bottom,.hero-corner{position:relative;z-index:3;pointer-events:none}
+.hero-top a,.hero-main a,.hero-bottom a,.hero-bottom .btn{pointer-events:auto}
+.hero-top{display:flex;align-items:flex-start;justify-content:space-between;gap:32px;padding:0 32px}
+.hero-tag{display:inline-flex;align-items:center;gap:12px;font-family:var(--mono);font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--fg)}
+.hero-tag .dot{width:7px;height:7px;background:var(--green);box-shadow:0 0 12px var(--green);animation:pulse 1.8s ease-in-out infinite}
+/* live telemetry readout */
+.hud{border:1px solid var(--hairline-strong);background:rgba(0,0,0,.42);backdrop-filter:blur(8px);padding:14px 16px 12px;min-width:212px}
+.hud-head{display:flex;justify-content:space-between;align-items:center;font-family:var(--mono);font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--green);margin-bottom:10px}
+.hud-row{display:flex;justify-content:space-between;gap:16px;font-family:var(--mono);font-size:10px;letter-spacing:.1em;padding:4px 0;color:var(--fg-dim)}
+.hud-row b{color:var(--fg);font-weight:600;font-variant-numeric:tabular-nums}
+.hero-main{padding:0 32px;margin-top:auto}
+.hero-badge{display:inline-flex;align-items:center;gap:11px;margin-bottom:24px;padding:9px 16px;border:1px solid var(--green);color:var(--green);font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;background:rgba(1,246,80,.06)}
+.hero-badge .sq{width:6px;height:6px;background:var(--green);animation:pulse 1.8s ease-in-out infinite}
+/* scale-contrast headline */
+.hero-headline{margin:0;font-size:clamp(3.2rem,11.5vw,11.5rem)}
+.hero-headline .line{display:block}
+.hero-headline .sm{display:block;font-size:.32em;line-height:1.1;letter-spacing:.02em;color:var(--fg-dim);margin-bottom:.5em}
+.hero-headline em{font-style:italic;color:var(--green);text-shadow:0 0 60px rgba(1,246,80,.35)}
+.hero-bottom{padding:44px 32px 0;display:grid;grid-template-columns:1fr auto;align-items:end;gap:40px}
+.hero-sub{max-width:520px;font-size:17px;line-height:1.55;margin:0;font-weight:300;color:rgba(244,244,241,.82)}
+.hero-sub strong{font-weight:600;color:var(--fg)}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:12px;justify-content:flex-end}
+.hero-corner{padding:26px 32px 0;font-family:var(--mono);font-size:9px;letter-spacing:.28em;text-transform:uppercase;color:var(--fg-dim);display:flex;justify-content:space-between;border-top:1px solid var(--hairline)}
+
+/* ---- marquee ---- */
+.marquee{border-top:1px solid var(--hairline-strong);border-bottom:1px solid var(--hairline-strong);overflow:hidden;background:#050505}
+.marquee-track{display:flex;padding:22px 0;animation:scroll 40s linear infinite;width:max-content;white-space:nowrap}
+.marquee-item{display:inline-flex;align-items:center;gap:40px;font-family:var(--display);font-style:italic;font-weight:800;font-size:clamp(26px,3.6vw,48px);text-transform:uppercase;line-height:1;padding-right:40px}
+.marquee-item .sep{width:11px;height:11px;border-radius:50%;background:var(--green);box-shadow:0 0 12px rgba(1,246,80,.6);flex-shrink:0}
+@keyframes scroll{to{transform:translateX(-50%)}}
+
+section.section{padding:130px 0;position:relative}
+section.section+section.section{border-top:1px solid var(--hairline)}
+
+/* ---- AI / replay signature ---- */
+#ai{overflow:hidden}
+#ai::before{content:"";position:absolute;top:-10%;right:-10%;width:70%;height:80%;background:radial-gradient(circle,rgba(1,246,80,.09),transparent 65%);pointer-events:none}
+.ai-head{max-width:900px;margin-bottom:64px;position:relative}
+.ai-head h2{font-size:clamp(2.4rem,6.4vw,5.6rem);margin:22px 0 24px}
+.ai-lede{color:var(--fg-dim);font-size:17px;line-height:1.6;max-width:540px;margin:0}
+.ai-lede strong{color:var(--fg);font-weight:600}
+.replay{display:grid;grid-template-columns:1.25fr .75fr;gap:0;border:1px solid var(--hairline-strong);background:linear-gradient(160deg,#080808,#000)}
+.replay-view{position:relative;padding:34px;border-right:1px solid var(--hairline-strong)}
+.replay-view .mono.tl{position:absolute;top:14px;left:16px;color:var(--green);font-size:9px}
+.replay-view .mono.tr{position:absolute;top:14px;right:16px;color:var(--fg-dim);font-size:9px}
+.court{width:100%;height:auto;display:block;margin:22px 0 18px}
+.court .surface{fill:var(--green-shade);opacity:.16}
+.court .line{stroke:rgba(244,244,241,.55);stroke-width:.7;fill:none}
+.court .glass{stroke:var(--green);stroke-width:1.2;fill:none;opacity:.55}
+.court .net{stroke:var(--fg);stroke-width:1.1;stroke-dasharray:1.4 1.4;opacity:.75}
+.court .rally{fill:none;stroke:var(--green);stroke-width:1.1;stroke-dasharray:480;stroke-dashoffset:0;filter:drop-shadow(0 0 4px rgba(1,246,80,.7))}
+.court.drawn .rally{animation:draw 3.2s linear infinite}
+@keyframes draw{from{stroke-dashoffset:480}to{stroke-dashoffset:0}}
+.court .bounce{fill:var(--green);opacity:.4}
+.court.drawn .bounce{animation:blip 3.2s linear infinite}
+.court.drawn .b2{animation-delay:.5s}.court.drawn .b3{animation-delay:1.05s}.court.drawn .b4{animation-delay:1.7s}
+@keyframes blip{0%,8%{opacity:.4;r:1.2}14%{opacity:1;r:2.4}30%,100%{opacity:.4;r:1.2}}
+.court .ball{fill:#fff;filter:drop-shadow(0 0 5px var(--green))}
+.scrub{display:flex;align-items:center;gap:14px;margin-top:6px}
+.scrub-bar{flex:1;height:2px;background:var(--hairline-strong);position:relative;overflow:hidden}
+.scrub-bar i{position:absolute;inset:0 auto 0 0;width:38%;background:var(--green);animation:scrubbing 3.2s linear infinite}
+@keyframes scrubbing{0%{width:2%}100%{width:100%}}
+.replay-data{display:flex;flex-direction:column}
+.drow{padding:22px 26px;border-bottom:1px solid var(--hairline);display:flex;flex-direction:column;gap:6px}
+.drow:last-child{border-bottom:none;margin-top:auto}
+.drow .k{font-family:var(--mono);font-size:9px;letter-spacing:.24em;text-transform:uppercase;color:var(--fg-dim)}
+.drow .v{font-family:var(--display);font-style:italic;font-weight:900;font-size:44px;line-height:.9;font-variant-numeric:tabular-nums}
+.drow .v small{font-size:.4em;color:var(--fg-dim);font-style:normal;letter-spacing:.04em}
+.drow.tall .v{color:var(--green)}
+.ai-list{display:grid;grid-template-columns:repeat(5,1fr);border-left:1px solid var(--hairline-strong);border-bottom:1px solid var(--hairline-strong);margin-top:-1px}
+.ai-cell{padding:30px 24px 34px;border-right:1px solid var(--hairline-strong);display:flex;flex-direction:column;gap:12px;transition:background .25s}
+.ai-cell:hover{background:rgba(1,246,80,.04)}
+.ai-cell .n{font-family:var(--mono);font-size:9px;letter-spacing:.22em;color:var(--green)}
+.ai-cell h3{font-family:var(--display);font-style:italic;font-weight:800;font-size:26px;text-transform:uppercase;line-height:.95;margin:0}
+.ai-cell p{margin:0;color:var(--fg-dim);font-size:14px;line-height:1.55}
+
+/* ---- statement ---- */
+.statement{border-top:1px solid var(--hairline-strong);border-bottom:1px solid var(--hairline-strong);padding:130px 0;background:#040404;position:relative;overflow:hidden}
+.statement::before{content:"";position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:120%;height:200%;background:radial-gradient(ellipse,rgba(1,246,80,.07),transparent 60%);pointer-events:none}
+.statement .inner{position:relative;display:grid;grid-template-columns:auto 1fr;gap:60px;align-items:end}
+.statement p{font-family:var(--display);font-style:italic;font-weight:900;font-size:clamp(2.4rem,7.4vw,6.4rem);line-height:.9;text-transform:uppercase;margin:0}
+.statement p em{font-style:italic;color:var(--green);text-shadow:0 0 70px rgba(1,246,80,.4)}
+.statement .side{font-family:var(--mono);font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--fg-dim);line-height:2;text-align:right;padding-bottom:10px}
+
+/* ---- courts plan ---- */
+#courts{overflow:hidden}
+.ghost-num{position:absolute;right:-2vw;top:40px;font-family:var(--display);font-style:italic;font-weight:900;font-size:min(30vw,26rem);line-height:.8;color:transparent;-webkit-text-stroke:1px rgba(244,244,241,.09);pointer-events:none;user-select:none}
+.courts-head{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:end;margin-bottom:56px;position:relative}
+.courts-head h2{font-size:clamp(2.4rem,6.4vw,5.6rem);margin:22px 0 0}
+.courts-head p{margin:0;color:var(--fg-dim);font-size:16px;line-height:1.6;max-width:420px}
+.plan{position:relative;display:grid;grid-template-columns:1.55fr .45fr;gap:0;border:1px solid var(--hairline-strong)}
+.plan-zone{padding:30px 30px 34px;border-right:1px solid var(--hairline-strong)}
+.zone-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:20px}
+.zone-head .t{font-family:var(--display);font-style:italic;font-weight:800;font-size:22px;text-transform:uppercase}
+.zone-head .m{font-family:var(--mono);font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--fg-dim)}
+.zone-grid{display:grid;gap:12px}
+.zone-indoor{grid-template-columns:repeat(3,1fr)}
+.zone-outdoor{grid-template-columns:repeat(2,1fr)}
+.cbox{position:relative;border:1px solid var(--hairline-strong);background:rgba(1,246,80,.02);padding:14px;cursor:pointer;transition:background .22s,border-color .22s,transform .22s}
+.cbox:hover,.cbox.on{background:rgba(1,246,80,.09);border-color:var(--green);transform:translateY(-2px)}
+.cbox svg{width:100%;height:auto;display:block}
+.cbox .cl{stroke:rgba(244,244,241,.4);stroke-width:.7;fill:none}
+.cbox .cg{stroke:var(--green);stroke-width:1.1;fill:none;opacity:.5}
+.cbox:hover .cg,.cbox.on .cg{opacity:1}
+.cbox .cs{fill:var(--green-shade);opacity:.14}
+.cbox .lbl{position:absolute;top:8px;left:10px;font-family:var(--mono);font-size:9px;letter-spacing:.16em;color:var(--fg-dim)}
+.cbox:hover .lbl,.cbox.on .lbl{color:var(--green)}
+.plan-side{padding:26px 24px;display:flex;flex-direction:column;gap:0}
+.plan-side .srow{padding:16px 0;border-bottom:1px solid var(--hairline);display:flex;flex-direction:column;gap:5px}
+.plan-side .srow:first-child{padding-top:0}
+.plan-side .srow .k{font-family:var(--mono);font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--fg-dim)}
+.plan-side .srow .v{font-family:var(--display);font-style:italic;font-weight:800;font-size:24px;text-transform:uppercase;line-height:1}
+.plan-side .note{margin-top:auto;padding-top:18px;font-family:var(--mono);font-size:9px;line-height:1.9;letter-spacing:.14em;text-transform:uppercase;color:var(--green)}
+.outdoor-band{grid-column:1/-1;border-top:1px solid var(--hairline-strong);padding:30px 30px 34px}
+
+/* ---- facilities: editorial numbered list, asymmetric ---- */
+.fac-head{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:end;margin-bottom:12px}
+.fac-head h2{font-size:clamp(2.4rem,6.4vw,5.6rem);margin:22px 0 0}
+.fac-head p{margin:0;color:var(--fg-dim);font-size:16px;line-height:1.6;max-width:440px}
+.fac-list{border-top:1px solid var(--hairline-strong);margin-top:56px}
+.fac{display:grid;grid-template-columns:96px minmax(0,1.1fr) minmax(0,1.4fr);gap:32px;align-items:baseline;padding:32px 0;border-bottom:1px solid var(--hairline);transition:padding-left .3s,background .3s}
+.fac:hover{padding-left:14px;background:linear-gradient(90deg,rgba(1,246,80,.05),transparent 70%)}
+.fac .idx{font-family:var(--display);font-style:italic;font-weight:900;font-size:42px;line-height:.8;color:transparent;-webkit-text-stroke:1px var(--hairline-strong);transition:color .3s,-webkit-text-stroke-color .3s}
+.fac:hover .idx{color:var(--green);-webkit-text-stroke-color:transparent}
+.fac h3{font-family:var(--display);font-style:italic;font-weight:800;font-size:clamp(28px,3.4vw,42px);text-transform:uppercase;line-height:.94;margin:0}
+.fac p{margin:0;color:var(--fg-dim);font-size:15px;line-height:1.6;max-width:520px}
+.fac .tag{display:block;font-family:var(--mono);font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--green);margin-bottom:9px}
+
+/* ---- booking ---- */
+section.book{background:var(--green);color:#000;padding:130px 0;position:relative;overflow:hidden}
+section.book::before{content:"";position:absolute;inset:0;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.7 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");opacity:.2;mix-blend-mode:multiply;pointer-events:none}
+section.book::after{content:"";position:absolute;left:-8%;bottom:-40%;width:60%;height:120%;background:radial-gradient(circle,rgba(255,255,255,.28),transparent 60%);pointer-events:none}
+.book-inner{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:start}
+.book .section-label{color:rgba(0,0,0,.6)}
+.book .section-label::after{background:#000}
+.book h2{font-size:clamp(3rem,8vw,7rem);margin:22px 0 26px;color:#000;line-height:.88}
+.book-sub{font-size:18px;line-height:1.55;color:#000;max-width:500px;margin:0 0 34px;font-weight:500}
+.book-meta{display:flex;gap:30px;flex-wrap:wrap}
+.book-meta .k{font-family:var(--mono);font-size:9px;letter-spacing:.24em;text-transform:uppercase;color:rgba(0,0,0,.6);display:block;margin-bottom:5px}
+.book-meta .v{font-family:var(--display);font-style:italic;font-weight:800;font-size:26px;line-height:1;text-transform:uppercase}
+.book-card{background:#000;color:var(--fg);padding:42px 38px;display:flex;flex-direction:column;gap:24px;position:relative}
+.book-card h3{font-family:var(--display);font-style:italic;font-weight:900;font-size:30px;text-transform:uppercase;margin:0;line-height:1}
+.book-list{border-top:1px solid var(--hairline)}
+.book-list div{padding:14px 0;border-bottom:1px solid var(--hairline);font-size:14px;color:var(--fg-dim);display:flex;gap:13px;align-items:baseline}
+.book-list div::before{content:"→";color:var(--green);flex-shrink:0}
+.book-btn{width:100%;background:var(--green);color:#000;border:1px solid var(--green);padding:21px 24px;font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;display:flex;align-items:center;justify-content:space-between;transition:transform .2s,background .2s,box-shadow .2s}
+.book-btn:hover{transform:translateY(-2px);background:#fff;border-color:#fff;box-shadow:0 16px 40px -14px rgba(1,246,80,.6)}
+
+/* ---- location ---- */
+.loc-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
+.loc-info h2{font-size:clamp(2.6rem,7vw,5.8rem);margin:22px 0 26px;line-height:.88}
+.loc-info p.desc{color:var(--fg-dim);font-size:17px;line-height:1.6;max-width:460px;margin:0 0 36px}
+.loc-info p.desc strong{color:var(--fg);font-weight:600}
+.loc-data{border-top:1px solid var(--hairline-strong)}
+.loc-data .row{display:grid;grid-template-columns:132px 1fr auto;align-items:center;gap:22px;padding:20px 0;border-bottom:1px solid var(--hairline)}
+.loc-data .row .k{font-family:var(--mono);font-size:9px;letter-spacing:.24em;text-transform:uppercase;color:var(--fg-dim)}
+.loc-data .row .v{font-family:var(--display);font-style:italic;font-weight:800;font-size:21px;text-transform:uppercase;line-height:1.1;color:var(--fg)}
+.loc-data .row a.v:hover{color:var(--green)}
+.loc-data .row .icon{font-family:var(--mono);font-size:9px;letter-spacing:.18em;color:var(--fg-dim);text-transform:uppercase}
+/* travel times as a data strip */
+.travel{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--hairline-strong);margin-bottom:2px}
+.travel div{padding:18px 20px;border-right:1px solid var(--hairline-strong)}
+.travel div:last-child{border-right:none}
+.travel .n{font-family:var(--display);font-style:italic;font-weight:900;font-size:34px;line-height:.9;color:var(--green)}
+.travel .l{font-family:var(--mono);font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--fg-dim);margin-top:7px;line-height:1.6}
+.map-frame{position:relative;aspect-ratio:1/1.05;border:1px solid var(--hairline-strong);overflow:hidden;background:#0a0a0a}
+.map-frame iframe{width:100%;height:100%;border:none;filter:invert(.94) hue-rotate(58deg) saturate(.55) brightness(1.04) contrast(1.1)}
+.map-pin{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none;z-index:2}
+.map-pin .pin{width:15px;height:15px;border-radius:50%;background:var(--green);box-shadow:0 0 0 4px rgba(0,0,0,.85),0 0 26px var(--green);animation:pulse 1.8s ease-in-out infinite}
+.map-pin .ring{position:absolute;top:50%;left:50%;width:66px;height:66px;margin:-33px 0 0 -33px;border:1px solid rgba(1,246,80,.45);border-radius:50%;animation:ripple 2.6s ease-out infinite}
+@keyframes ripple{0%{transform:scale(.4);opacity:.9}100%{transform:scale(1.5);opacity:0}}
+.map-overlay{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(to top,#000,transparent);padding:34px 22px 18px;pointer-events:none}
+.map-overlay .coord{font-family:var(--mono);font-size:9px;letter-spacing:.24em;color:var(--green);text-transform:uppercase}
+.map-overlay .place{font-family:var(--display);font-style:italic;font-weight:900;font-size:24px;text-transform:uppercase;line-height:1;margin-top:7px}
+
+/* ---- footer ---- */
+footer.footer{border-top:1px solid var(--hairline-strong);padding:76px 0 34px;position:relative;overflow:hidden}
+footer.footer::before{content:"";position:absolute;left:50%;bottom:-60%;transform:translateX(-50%);width:90%;height:120%;background:radial-gradient(ellipse,rgba(1,246,80,.1),transparent 62%);pointer-events:none}
+.footer-line{font-family:var(--display);font-style:italic;font-weight:900;font-size:clamp(2.8rem,12.5vw,12rem);line-height:.85;text-transform:uppercase;margin:0 0 54px;text-align:center;position:relative}
+.footer-line em{font-style:italic;color:var(--green);text-shadow:0 0 80px rgba(1,246,80,.45)}
+.footer-bar{display:flex;justify-content:space-between;align-items:center;gap:30px;padding-top:30px;border-top:1px solid var(--hairline);flex-wrap:wrap;position:relative}
+.footer-mark{height:74px;overflow:hidden;display:flex;align-items:center}
+.footer-mark img{height:120px;width:120px;object-fit:cover}
+.footer-bar .credit{font-family:var(--mono);font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--fg-dim);line-height:1.9}
+.footer-bar .links{display:flex;gap:24px}
+.footer-bar .links a{font-family:var(--mono);font-size:9px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--fg-dim)}
+.footer-bar .links a:hover{color:var(--green)}
+
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){*{animation-duration:.001s!important;animation-iteration-count:1!important}.reveal{opacity:1;transform:none}}
+
+@media (max-width:1080px){
+  .replay{grid-template-columns:1fr}
+  .replay-view{border-right:none;border-bottom:1px solid var(--hairline-strong)}
+  .replay-data{flex-direction:row;flex-wrap:wrap}
+  .drow{flex:1 1 45%;border-right:1px solid var(--hairline)}
+  .ai-list{grid-template-columns:repeat(2,1fr)}
+  .ai-cell{border-bottom:1px solid var(--hairline-strong)}
+  .plan{grid-template-columns:1fr}
+  .plan-zone{border-right:none;border-bottom:1px solid var(--hairline-strong)}
+}
+@media (max-width:900px){
+  .container{padding:0 20px}
+  .nav-inner{padding:0 20px;height:64px}
+  .nav-links a.link,.nav-live{display:none}
+  .nav-logo{height:44px}.nav-logo img{height:70px;width:70px}
+  .hero{padding:110px 0 32px}
+  .hero-top{padding:0 20px;flex-direction:column;gap:20px}
+  .hud{width:100%;min-width:0}
+  .hero-main{padding:0 20px;margin-top:44px}
+  .hero-scrim{background:linear-gradient(to top,#000 16%,rgba(0,0,0,.58))}
+  .hero-bottom{padding:34px 20px 0;grid-template-columns:1fr;gap:26px}
+  .hero-ctas{justify-content:flex-start}
+  .hero-corner{padding:20px 20px 0;font-size:8px}
+  .hero-headline .sm{font-size:.4em}
+  section.section{padding:80px 0}
+  .ai-list{grid-template-columns:1fr}
+  .courts-head,.fac-head,.book-inner,.loc-grid,.statement .inner{grid-template-columns:1fr;gap:34px}
+  .statement{padding:80px 0}
+  .statement .side{text-align:left}
+  .ghost-num{display:none}
+  .zone-indoor{grid-template-columns:repeat(2,1fr)}
+  .replay-view{padding:22px}
+  .drow{flex:1 1 100%;border-right:none}
+  .fac{grid-template-columns:52px 1fr;gap:18px;padding:26px 0}
+  .fac p{grid-column:2}
+  .fac .idx{font-size:30px}
+  section.book{padding:80px 0}
+  .book-card{padding:30px 24px}
+  .loc-data .row{grid-template-columns:104px 1fr}
+  .loc-data .row .icon{display:none}
+  .map-frame{aspect-ratio:4/5}
+  .travel div{padding:14px 14px}
+  .travel .n{font-size:26px}
+  .footer-bar{flex-direction:column;align-items:flex-start;gap:20px}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#top" class="nav-logo" aria-label="Dynamic Padel Club, home"><img src="logo-mark.jpg" alt="Dynamic Padel" /></a>
+    <div class="nav-links">
+      <span class="nav-live"><span class="dot"></span>Now Open</span>
+      <a class="link" href="#ai">AI Courts</a>
+      <a class="link" href="#courts">The Plan</a>
+      <a class="link" href="#facilities">Club</a>
+      <a class="link" href="#location">Find Us</a>
+      <a class="btn btn-primary" href="https://playtomic.com/clubs/dynamic-padel" target="_blank" rel="noopener">Book a Court <span class="arrow">→</span></a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="hero-media"><img src="exterior-dusk.jpg" alt="Dynamic Padel Club at dusk, green signage lit against the sky" fetchpriority="high" /></div>
+  <div class="hero-scrim" aria-hidden="true"></div>
+  <div class="hero-track" aria-hidden="true">
+    <svg viewBox="0 0 100 100" preserveAspectRatio="none">
+      <path class="trace" d="M8,74 C24,58 38,66 52,50 C64,36 76,42 92,26" />
+      <rect class="bbox" x="46" y="44" width="12" height="15" />
+      <rect class="bbox-dim" x="70" y="56" width="9" height="12" />
+    </svg>
+  </div>
+
+  <div class="hero-top">
+    <div class="hero-tag"><span class="dot"></span>Now Open · Birmingham City Centre</div>
+    <div class="hud framed">
+      <div class="hud-head"><span>Court 03 · Live</span><span>REC</span></div>
+      <div class="hud-row"><span>Shot speed</span><b id="t1">86 km/h</b></div>
+      <div class="hud-row"><span>Rally length</span><b id="t2">14 shots</b></div>
+      <div class="hud-row"><span>Accuracy</span><b id="t3">78%</b></div>
+    </div>
+  </div>
+
+  <div class="hero-main">
+    <div class="hero-badge"><span class="sq"></span>Birmingham's First AI-Powered Padel Club</div>
+    <h1 class="display hero-headline">
+      <span class="sm">Six panoramic courts. One camera on every point.</span>
+      <span class="line">Every point</span>
+      <span class="line">tracked. <em>Every</em></span>
+      <span class="line"><em>game</em> yours.</span>
+    </h1>
+  </div>
+
+  <div class="hero-bottom">
+    <p class="hero-sub"><strong>Six super panoramic courts, every one AI-powered.</strong> Your shots analysed, your best points on instant replay, your whole match ready to download and share. First racket or hundredth — you're welcome here.</p>
+    <div class="hero-ctas">
+      <a class="btn btn-primary" href="https://playtomic.com/clubs/dynamic-padel" target="_blank" rel="noopener">Book a Court <span class="arrow">→</span></a>
+      <a class="btn btn-ghost" href="#ai">See the AI</a>
+    </div>
+  </div>
+
+  <div class="hero-corner"><span>52.4735° N · 1.8803° W</span><span>131–148 High Street · B12 0JU</span><span>Scroll ↓</span></div>
+</header>
+
+<div class="marquee" aria-hidden="true"><div class="marquee-track" id="marqueeTrack"></div></div>
+
+<section class="section" id="ai">
+  <div class="container">
+    <div class="ai-head reveal">
+      <span class="section-label">AI On Every Court</span>
+      <h2 class="display">The court is<br><em class="green">watching.</em> In a<br>good way.</h2>
+      <p class="ai-lede"><strong>Every one of our six courts is fitted with AI technology.</strong> It follows the ball, reads the play and turns your session into something you can watch back, learn from and send to the group chat.</p>
+    </div>
+
+    <div class="replay reveal framed">
+      <div class="replay-view">
+        <span class="mono tl">● REC · Court 03 · Rally 07</span>
+        <span class="mono tr">AI Tracking</span>
+        <svg class="court" id="courtSvg" viewBox="0 0 200 104" aria-label="Padel court with an AI-tracked rally">
+          <rect class="surface" x="2" y="2" width="196" height="100" />
+          <rect class="glass" x="2" y="2" width="196" height="100" />
+          <line class="line" x1="34" y1="2" x2="34" y2="102" />
+          <line class="line" x1="166" y1="2" x2="166" y2="102" />
+          <line class="line" x1="2" y1="52" x2="34" y2="52" />
+          <line class="line" x1="166" y1="52" x2="198" y2="52" />
+          <line class="net" x1="100" y1="2" x2="100" y2="102" />
+          <path class="rally" d="M20,78 L118,30 L58,66 L150,74 L74,22 L178,58" />
+          <circle class="bounce b1" cx="118" cy="30" r="1.2" />
+          <circle class="bounce b2" cx="58" cy="66" r="1.2" />
+          <circle class="bounce b3" cx="150" cy="74" r="1.2" />
+          <circle class="bounce b4" cx="74" cy="22" r="1.2" />
+          <circle class="ball" r="2.2">
+            <animateMotion dur="3.2s" repeatCount="indefinite" path="M20,78 L118,30 L58,66 L150,74 L74,22 L178,58" keyPoints="0;1" keyTimes="0;1" calcMode="linear" />
+          </circle>
+        </svg>
+        <div class="scrub">
+          <span class="mono" style="color:var(--green)">00:07</span>
+          <span class="scrub-bar"><i></i></span>
+          <span class="mono" style="color:var(--fg-dim)">Full match · download</span>
+        </div>
+      </div>
+      <div class="replay-data">
+        <div class="drow tall"><span class="k">Courts tracked</span><span class="v">06<small> / 06</small></span></div>
+        <div class="drow"><span class="k">Longest rally</span><span class="v">31<small> shots</small></span></div>
+        <div class="drow"><span class="k">Top shot speed</span><span class="v">112<small> km/h</small></span></div>
+        <div class="drow"><span class="k">Your match</span><span class="v" style="font-size:26px">Download<br>&amp; share</span></div>
+      </div>
+    </div>
+
+    <div class="ai-list reveal">
+      <div class="ai-cell"><span class="n">01 / Track</span><h3>Tracks your<br>game</h3><p>Cameras follow every rally from first serve to match point. Nothing to set up — walk on and play.</p></div>
+      <div class="ai-cell"><span class="n">02 / Analyse</span><h3>Analyses<br>your shots</h3><p>Shot-by-shot breakdown of how you're actually playing, so you know what to work on next.</p></div>
+      <div class="ai-cell"><span class="n">03 / Replay</span><h3>Instant<br>replay</h3><p>That winner down the line, on screen seconds later. Settle the point and take the credit.</p></div>
+      <div class="ai-cell"><span class="n">04 / Fair play</span><h3>Fair play,<br>guaranteed</h3><p>Line calls and scoring backed by the footage. No arguments, no "that was out".</p></div>
+      <div class="ai-cell"><span class="n">05 / Share</span><h3>Download<br>&amp; share</h3><p>Your full match, yours to keep. Clip it, post it — every session leaves with you.</p></div>
+    </div>
+  </div>
+</section>
+
+<div class="statement">
+  <div class="container">
+    <div class="inner">
+      <p class="reveal">More than just<br>a venue. It's a<br><em>community.</em></p>
+      <div class="side reveal">First racket<br>or hundredth<br>— you're in</div>
+    </div>
+  </div>
+</div>
+
+<section class="section" id="courts">
+  <span class="ghost-num" aria-hidden="true">06</span>
+  <div class="container">
+    <div class="courts-head reveal">
+      <div>
+        <span class="section-label">The Courts</span>
+        <h2 class="display">Six courts.<br><em class="green">All panoramic.</em><br>All AI.</h2>
+      </div>
+      <p>Four indoors for year-round play, two outdoors and fully covered. Every court super panoramic, every court tracked. Tap a court for its spec.</p>
+    </div>
+
+    <div class="plan reveal framed">
+      <div class="plan-zone">
+        <div class="zone-head"><span class="t">Indoor</span><span class="m">04 courts · climate controlled</span></div>
+        <div class="zone-grid zone-indoor">
+          <div class="cbox" data-name="Court 01" data-type="Indoor doubles" data-size="20 × 10 m" tabindex="0"><span class="lbl">01 · Doubles</span><svg viewBox="0 0 120 74"><rect class="cs" x="3" y="14" width="114" height="57"/><rect class="cg" x="3" y="14" width="114" height="57"/><line class="cl" x1="60" y1="14" x2="60" y2="71"/><line class="cl" x1="21" y1="14" x2="21" y2="71"/><line class="cl" x1="99" y1="14" x2="99" y2="71"/><line class="cl" x1="3" y1="42.5" x2="21" y2="42.5"/><line class="cl" x1="99" y1="42.5" x2="117" y2="42.5"/></svg></div>
+          <div class="cbox" data-name="Court 02" data-type="Indoor doubles" data-size="20 × 10 m" tabindex="0"><span class="lbl">02 · Doubles</span><svg viewBox="0 0 120 74"><rect class="cs" x="3" y="14" width="114" height="57"/><rect class="cg" x="3" y="14" width="114" height="57"/><line class="cl" x1="60" y1="14" x2="60" y2="71"/><line class="cl" x1="21" y1="14" x2="21" y2="71"/><line class="cl" x1="99" y1="14" x2="99" y2="71"/><line class="cl" x1="3" y1="42.5" x2="21" y2="42.5"/><line class="cl" x1="99" y1="42.5" x2="117" y2="42.5"/></svg></div>
+          <div class="cbox" data-name="Court 03" data-type="Indoor doubles" data-size="20 × 10 m" tabindex="0"><span class="lbl">03 · Doubles</span><svg viewBox="0 0 120 74"><rect class="cs" x="3" y="14" width="114" height="57"/><rect class="cg" x="3" y="14" width="114" height="57"/><line class="cl" x1="60" y1="14" x2="60" y2="71"/><line class="cl" x1="21" y1="14" x2="21" y2="71"/><line class="cl" x1="99" y1="14" x2="99" y2="71"/><line class="cl" x1="3" y1="42.5" x2="21" y2="42.5"/><line class="cl" x1="99" y1="42.5" x2="117" y2="42.5"/></svg></div>
+          <div class="cbox" data-name="Court 04" data-type="Indoor singles" data-size="20 × 6 m" tabindex="0" style="grid-column:1/-1"><span class="lbl">04 · Singles</span><svg viewBox="0 0 260 60"><rect class="cs" x="3" y="16" width="254" height="36"/><rect class="cg" x="3" y="16" width="254" height="36"/><line class="cl" x1="130" y1="16" x2="130" y2="52"/><line class="cl" x1="45" y1="16" x2="45" y2="52"/><line class="cl" x1="215" y1="16" x2="215" y2="52"/><line class="cl" x1="3" y1="34" x2="45" y2="34"/><line class="cl" x1="215" y1="34" x2="257" y2="34"/></svg></div>
+        </div>
+      </div>
+      <div class="plan-side">
+        <div class="srow"><span class="k">Selected</span><span class="v" id="selName">All six</span></div>
+        <div class="srow"><span class="k">Type</span><span class="v" id="selType">AI-powered</span></div>
+        <div class="srow"><span class="k">Playing area</span><span class="v" id="selSize">Panoramic</span></div>
+        <div class="note">AI tracking<br>fitted on<br>every court</div>
+      </div>
+      <div class="outdoor-band">
+        <div class="zone-head"><span class="t">Outdoor</span><span class="m">02 courts · fully covered</span></div>
+        <div class="zone-grid zone-outdoor">
+          <div class="cbox" data-name="Court 05" data-type="Outdoor, covered" data-size="20 × 10 m" tabindex="0"><span class="lbl">05 · Covered</span><svg viewBox="0 0 200 62"><rect class="cs" x="3" y="10" width="194" height="49"/><rect class="cg" x="3" y="10" width="194" height="49"/><line class="cl" x1="100" y1="10" x2="100" y2="59"/><line class="cl" x1="34" y1="10" x2="34" y2="59"/><line class="cl" x1="166" y1="10" x2="166" y2="59"/><line class="cl" x1="3" y1="34.5" x2="34" y2="34.5"/><line class="cl" x1="166" y1="34.5" x2="197" y2="34.5"/></svg></div>
+          <div class="cbox" data-name="Court 06" data-type="Outdoor, covered" data-size="20 × 10 m" tabindex="0"><span class="lbl">06 · Covered</span><svg viewBox="0 0 200 62"><rect class="cs" x="3" y="10" width="194" height="49"/><rect class="cg" x="3" y="10" width="194" height="49"/><line class="cl" x1="100" y1="10" x2="100" y2="59"/><line class="cl" x1="34" y1="10" x2="34" y2="59"/><line class="cl" x1="166" y1="10" x2="166" y2="59"/><line class="cl" x1="3" y1="34.5" x2="34" y2="34.5"/><line class="cl" x1="166" y1="34.5" x2="197" y2="34.5"/></svg></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="facilities">
+  <div class="container">
+    <div class="fac-head reveal">
+      <div>
+        <span class="section-label">The Club</span>
+        <h2 class="display">Off the<br><em class="green">court.</em></h2>
+      </div>
+      <p>Courts are only half of it. Come for a match, stay for a coffee, get some work done upstairs. Whether it's your first session or your five hundredth, there's a place for you here.</p>
+    </div>
+
+    <div class="fac-list reveal">
+      <div class="fac"><span class="idx">01</span><h3>Café &amp;<br>lounge</h3><p><span class="tag">Coffee · Matcha · Light bites</span>A proper lounge to land in before your court or long after it. Coffee, matcha and light bites, served all day.</p></div>
+      <div class="fac"><span class="idx">02</span><h3>Pilates &amp;<br>workspace</h3><p><span class="tag">Mezzanine level</span>A Pilates studio and workspace on the mezzanine. Train, stretch, or answer emails between games.</p></div>
+      <div class="fac"><span class="idx">03</span><h3>Views over<br>the courts</h3><p><span class="tag">Seating area</span>Seating that looks straight out over the play. Watch the match before yours, or just watch.</p></div>
+      <div class="fac"><span class="idx">04</span><h3>Changing<br>rooms</h3><p><span class="tag">Showers · Toilets</span>Changing rooms, showers and toilets on site. Arrive from work, leave for dinner.</p></div>
+      <div class="fac"><span class="idx">05</span><h3>All levels<br>welcome</h3><p><span class="tag">Coaching</span>First-timers and seasoned players alike. Learn the game or sharpen it, with the AI showing your progress.</p></div>
+      <div class="fac"><span class="idx">06</span><h3>Leagues &amp;<br>socials</h3><p><span class="tag">Community</span>Open matches, leagues and social nights. Turn up on your own, leave with a regular four.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="book" id="book">
+  <div class="container">
+    <div class="book-inner">
+      <div class="reveal">
+        <span class="section-label">Book</span>
+        <h2 class="display">Get on<br>a <em>court.</em></h2>
+        <p class="book-sub">Courts are live on Playtomic now. Pick your slot, bring three friends or let us find you a four. Everything is AI-tracked from the first serve.</p>
+        <div class="book-meta">
+          <div><span class="k">Status</span><span class="v">Now open</span></div>
+          <div><span class="k">Courts</span><span class="v">6 AI courts</span></div>
+          <div><span class="k">Booking</span><span class="v">Playtomic</span></div>
+        </div>
+      </div>
+      <div class="book-card reveal framed">
+        <h3>Every booking includes.</h3>
+        <div class="book-list">
+          <div>Full AI tracking on your court</div>
+          <div>Instant replay while you play</div>
+          <div>Shot analysis for every player</div>
+          <div>Your full match to download and share</div>
+        </div>
+        <a class="book-btn" href="https://playtomic.com/clubs/dynamic-padel" target="_blank" rel="noopener"><span>Book on Playtomic</span><span class="arrow">→</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="location">
+  <div class="container">
+    <div class="loc-grid">
+      <div class="loc-info reveal">
+        <span class="section-label">Location</span>
+        <h2 class="display">In the heart<br>of <em class="green">Birmingham.</em></h2>
+        <p class="desc">Less than a <strong>five-minute walk from the Bullring Shopping Centre</strong>, with direct access from the high street and excellent public transport links. <strong>40 parking spaces</strong> on site.</p>
+        <div class="travel">
+          <div><div class="n">10</div><div class="l">Min walk<br>Bullring</div></div>
+          <div><div class="n">40</div><div class="l">Parking<br>spaces</div></div>
+          <div><div class="n">A45</div><div class="l">Direct<br>road access</div></div>
+        </div>
+        <div class="loc-data">
+          <div class="row"><span class="k">Address</span><span class="v">131–148 High Street<br>Bordesley, B12 0JU</span><span class="icon">→</span></div>
+          <div class="row"><span class="k">Phone</span><a class="v" href="tel:01217147350">0121 714 7350</a><span class="icon">Call</span></div>
+          <div class="row"><span class="k">Instagram</span><a class="v" href="https://instagram.com/dynamicpadelclub" target="_blank" rel="noopener">@dynamicpadelclub</a><span class="icon">Follow</span></div>
+          <div class="row"><span class="k">Hours</span><span class="v">Now open · Book online</span><span class="icon">Live</span></div>
+        </div>
+      </div>
+      <div class="map-frame reveal framed">
+        <iframe loading="lazy" title="Map of Dynamic Padel Club, Bordesley, Birmingham" src="https://www.openstreetmap.org/export/embed.html?bbox=-1.892%2C52.4685%2C-1.8686%2C52.4785&layer=mapnik&marker=52.473515%2C-1.8803314"></iframe>
+        <div class="map-pin"><span class="ring"></span><div class="pin"></div></div>
+        <div class="map-overlay">
+          <div class="coord">5 min walk · Bullring</div>
+          <div class="place">Dynamic Padel Club</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <h2 class="footer-line">Birmingham. The<br>game is <em>here.</em></h2>
+    <div class="footer-bar">
+      <div class="footer-mark"><img src="logo-mark.jpg" alt="Dynamic Padel" /></div>
+      <div class="credit">© 2026 Dynamic Padel Club<br>131–148 High Street, Bordesley, B12 0JU</div>
+      <div class="links">
+        <a href="https://playtomic.com/clubs/dynamic-padel" target="_blank" rel="noopener">Book</a>
+        <a href="https://instagram.com/dynamicpadelclub" target="_blank" rel="noopener">Instagram</a>
+        <a href="tel:01217147350">Call</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var track=document.getElementById('marqueeTrack');
+  var p=["AI-Powered Padel","Now Open","6 Panoramic Courts","Birmingham City Centre","More Than A Venue"];
+  function one(){var w=document.createElement('div');w.className='marquee-item';p.forEach(function(t){var s=document.createElement('span');s.textContent=t;w.appendChild(s);var d=document.createElement('span');d.className='sep';w.appendChild(d);});return w;}
+  for(var i=0;i<4;i++)track.appendChild(one());
+})();
+
+var nav=document.getElementById('nav');
+var onScroll=function(){nav.classList.toggle('scrolled',window.scrollY>24)};
+window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
+
+// start the rally animation only when the panel is on screen
+var cio=new IntersectionObserver(function(es){es.forEach(function(e){document.getElementById('courtSvg').classList.toggle('drawn',e.isIntersecting)})},{threshold:.25});
+cio.observe(document.querySelector('.replay-view'));
+
+// hero telemetry readout
+(function(){
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  var a=document.getElementById('t1'),b=document.getElementById('t2'),c=document.getElementById('t3');
+  var sets=[[86,14,78],[94,9,81],[71,22,74],[108,17,85],[79,31,69]],i=0;
+  setInterval(function(){i=(i+1)%sets.length;var s=sets[i];a.textContent=s[0]+' km/h';b.textContent=s[1]+' shots';c.textContent=s[2]+'%'},2400);
+})();
+
+// court plan selector
+(function(){
+  var boxes=[].slice.call(document.querySelectorAll('.cbox'));
+  var n=document.getElementById('selName'),t=document.getElementById('selType'),s=document.getElementById('selSize');
+  function pick(el){boxes.forEach(function(b){b.classList.toggle('on',b===el)});n.textContent=el.dataset.name;t.textContent=el.dataset.type;s.textContent=el.dataset.size}
+  boxes.forEach(function(b){
+    b.addEventListener('mouseenter',function(){pick(b)});
+    b.addEventListener('click',function(){pick(b)});
+    b.addEventListener('focus',function(){pick(b)});
+  });
+})();
+</script>
+</body>
+</html>
